@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            width:500px;
+            height:500px;
+            position:absolute;
+            top: 0;
+            right: 0;
+            bottom:0;
+            left:0;
+            margin: auto;
+            text-align: center;
+            border:1px solid black
+        }
+        .mid_wrapper{
+            position:relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .mid_content{
+            display: inline-block;
+           margin-bottom:10px;
+        }
+        .blue_bar{
+            width:0;
+            height:3px;
+            background-color:blue;
+            margin:0 auto;
+        }
+        .switch{
+            display: block;
+            width:100px;
+            margin:10px auto 0 auto;
+            text-decoration: none;
+            border:1px solid gray;
+            color:black;
+            border-radius: 10px;
+            padding:5px 20px;
+        }
+        /* 激活后小动画 */
+        .text_color_active{
+            color:blue;
+            transition:color 1s;
+        }
+        .bar_width_active{
+            width:128px;
+            transition:width 1s;
+        }
+        /* 失效后小动画 */
+        .text_color_invalid{
+            color:black;
+            transition:color 1s;
+        }
+        .bar_width_invalid{
+            width:0;
+            transition:width 1s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="mid_wrapper">
+        <span class="mid_content">爱前端真是太好了</span>
+        <div class="blue_bar"></div>
+        <a href="javascript:;" class="switch">点击切换样式</a>
+    </div>
+
+    <script type="text/javascript">
+     window.onload = function () {
+         // 计数器
+         var count = 0;
+         // 得到元素
+         var btn = document.getElementsByClassName('switch')[0];
+         var bar = document.getElementsByClassName('blue_bar')[0];
+         var text = document.getElementsByClassName('mid_content')[0];
+         btn.onclick = function () {
+             // 根据计数器判断状态（激活/失效）
+             if(count%2 === 0){
+                bar.className = 'blue_bar bar_width_active'
+                text.className = 'mid_content text_color_active'
+                 count++
+             }else{
+                 bar.className = 'blue_bar bar_width_invalid'
+                 text.className = 'mid_content text_color_invalid'
+                 count++
+             }
+         }
+     }
+    </script>
+</div>
+</body>
+</html>
