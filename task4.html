@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task4</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        img{
+            display: block;
+        }
+        .container{
+            width:250px;
+            margin:50px auto;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .front{
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 2;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .reverse{
+            position: absolute;
+            top:0;
+            left:0;
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+        .container:hover{
+            -webkit-animation: rotate 4s ease infinite;
+            -o-animation: rotate 4s ease infinite;
+            animation: rotate 4s ease infinite;
+        }
+        @keyframes rotate{
+           0%{
+                -webkit-transform: rotateY(0deg);
+                -moz-transform: rotateY(0deg);
+                -ms-transform: rotateY(0deg);
+                -o-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+            }
+            50%{
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                -ms-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+            100%{
+                -webkit-transform: rotateY(0deg);
+                -moz-transform: rotateY(0deg);
+                -ms-transform: rotateY(0deg);
+                -o-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="front">
+            <img src="front.jpg">
+        </div>
+        <div class="reverse">
+            <img src="reverse.jpg" >
+        </div>
+    </div>
+
+</body>
+</html>
